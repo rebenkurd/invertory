@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id');
             $table->unsignedBigInteger('invertory_id');
             $table->string('purchase_date');
-            $table->string('invoice_no')->unsigned();
+            $table->string('invoice_no')->unique();
             $table->enum('currency',['iqd','usd'])->default('iqd');
             $table->string('attach_file')->nullable();
             $table->string('amount');
@@ -27,9 +27,9 @@ return new class extends Migration
             $table->tinyInteger('return_status')->default(0)->nullable();
             $table->string('return_date')->nullable();
             $table->string('notes')->nullable();
+            $table->timestamps();
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('invertory_id')->references('id')->on('invertories')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
         });
     }
 
