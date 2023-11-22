@@ -14,6 +14,7 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{url('/')}}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboard">Dashboard</span></a>
             </li>
 
+
             <!-- Users -->
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="users"></i><span class="menu-title text-truncate">Users</span></a>
                 <ul class="menu-content">
@@ -45,7 +46,7 @@
                 </ul>
             </li>
 
-            <!-- Purchase -->
+            <!-- Sale -->
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="truck"></i><span class="menu-title text-truncate">Sale</span></a>
                 <ul class="menu-content">
                     <li><a class="d-flex align-items-center" href="{{route('all.sale')}}"><i data-feather="list"></i><span class="menu-item text-truncate" data-i18n="All S">All Sale</span></a>

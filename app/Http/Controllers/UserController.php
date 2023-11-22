@@ -39,6 +39,7 @@ class UserController extends Controller
     public function StoreUser(Request $request){
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()).'_user.'.$image->getClientOriginalExtension();
+        
         Image::make($image)->resize(120,120)->save('uploads/users/'.$name_gen);
         $save_url = 'uploads/users/'.$name_gen;
         User::insert([

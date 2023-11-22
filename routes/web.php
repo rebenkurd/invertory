@@ -12,11 +12,12 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ReportController;
 
 
+Route::get('logout', [UserController::class, 'Logout'])->name('logout');
+
 Route::middleware(['auth','role:admin'])->group(function() {
 
     // user controller
     Route::controller(UserController::class)->group(function(){
-        Route::get('/logout', 'Logout')->name('logout');
         Route::get('/all/user', 'AllUser')->name('all.user');
         Route::get('/add/user', 'AddUser')->name('add.user');
         Route::post('/store/user', 'StoreUser')->name('store.user');
@@ -108,6 +109,21 @@ Route::middleware(['auth','role:admin'])->group(function() {
 
 
 
+
+});
+
+
+Route::middleware(['auth','role:user'])->group(function() {
+
+    // Product controller
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('/all/product', 'AllProduct')->name('all.product');
+        Route::get('/add/product', 'AddProduct')->name('add.product');
+        Route::post('/store/product', 'StoreProduct')->name('store.product');
+        Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+        Route::post('/update/product/{id}', 'UpdateProduct')->name('update.product');
+        Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+    });
 
 });
 
